@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/09 14:16:03 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/09 14:47:09 by corellan         ###   ########.fr       */
+/*   Created: 2023/06/09 18:33:54 by corellan          #+#    #+#             */
+/*   Updated: 2023/06/09 18:48:14 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 # define BRAIN_HPP
 
 # include <string>
-# include <iostream>
 
 class Brain
 {
 public:
-	
+
 	Brain(void);
 	Brain(Brain const &rhs);
 	~Brain(void);
@@ -28,7 +27,7 @@ public:
 
 private:
 
-	std::string	_ideas[100];
+	std::string	_ideas;
 
 };
 

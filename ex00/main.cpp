@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:14:21 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/09 16:40:29 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:21:47 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(void)
 	std::cout << std::endl;
 	std::cout << "I am a " << k->getType() << " " << std::endl;
 	k->makeSound();
-	std::cout << std::endl;
 	std::cout << std::endl;
 	delete meta;
 	delete i;

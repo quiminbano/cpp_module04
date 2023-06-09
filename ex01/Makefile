@@ -6,11 +6,11 @@
 #    By: corellan <corellan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/09 10:37:08 by corellan          #+#    #+#              #
-#    Updated: 2023/06/09 11:05:15 by corellan         ###   ########.fr        #
+#    Updated: 2023/06/09 18:33:41 by corellan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = animals
+NAME = brains
 
 SRC = Animal.cpp Cat.cpp Dog.cpp main.cpp
 
