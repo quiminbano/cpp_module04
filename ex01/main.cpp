@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 13:07:52 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/09 15:33:16 by corellan         ###   ########.fr       */
+/*   Created: 2023/06/09 10:14:21 by corellan          #+#    #+#             */
+/*   Updated: 2023/06/09 11:27:02 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#include "Dog.hpp"
+#include "Cat.hpp"
 
-# include <string>
-# include <iostream>
-
-class Animal
+int	main(void)
 {
-public:
+	const Animal	*meta = new Animal();
+	const Animal	*j = new Dog();
+	const Animal	*i = new Cat();
 
-	Animal(void);
-	Animal(Animal const &rhs);
-	Animal(std::string type);
-	virtual ~Animal(void);
-
-	Animal	&operator=(Animal const &rhs);
-
-	virtual void	makeSound(void) const;
-
-	std::string	getType(void) const;
-
-protected:
-
-	std::string	_type;
-
-};
-
-#endif
+	std::cout << "I am a " << j->getType() << " " << std::endl;
+	std::cout << "I am a " << i->getType() << " " << std::endl;
+	i->makeSound();
+	j->makeSound();
+	meta->makeSound();
+	delete meta;
+	delete i;
+	delete j;
+	return (0);
+}

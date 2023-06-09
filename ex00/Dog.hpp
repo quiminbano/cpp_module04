@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:08:07 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/08 14:36:04 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/09 10:34:23 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 
 	Dog	&operator=(Dog const &rhs);
 
-	void	makeSound(void);
+	void	makeSound(void) const;
 
 };
 

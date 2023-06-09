@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 13:08:21 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/09 15:33:06 by corellan         ###   ########.fr       */
+/*   Created: 2023/06/09 14:27:18 by corellan          #+#    #+#             */
+/*   Updated: 2023/06/09 15:05:54 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#include "Brain.hpp"
 
-# include "Animal.hpp"
-
-class Cat : public Animal
+Brain::Brain(void)
 {
-public:
+	std::cout << "Default constructor for the Brain class called" << std::endl;
+	return ;
+}
 
-	Cat(void);
-	Cat(std::string type);
-	Cat(Cat const &rhs);
-	~Cat(void);
+Brain::Brain(Brain const &rhs)
+{
+	std::cout << "Copy constructor for the Brain class called" << std::endl;
+	*this = rhs;
+	return ;
+}
 
-	Cat	&operator=(Cat const &rhs);
+Brain::~Brain(void)
+{
+	std::cout << "Destructor for the brain class called" << std::endl;
+	return ;
+}
 
-	void	makeSound(void) const;
+Brain	&Brain::operator=(Brain const &rhs)
+{
 	
-};
-
-#endif
+}

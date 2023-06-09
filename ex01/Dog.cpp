@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:54:17 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/09 10:56:11 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/09 14:53:46 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 Dog::Dog(void) : Animal("Dog")
 {
+	this->_brain = new Brain;
 	std::cout << "Default constructor for Dog class called" << std::endl; 
 	return ;
 }
 
 Dog::Dog(std::string type) : Animal(type)
 {
+	this->_brain = new Brain;
 	std::cout << "Constructor for Dog class called with the type " << this->_type << std::endl;
 	this->_type = type;
 	return ;
@@ -34,6 +36,7 @@ Dog::Dog(Dog const &rhs)
 
 Dog::~Dog(void)
 {
+	delete this->_brain;
 	std::cout << "Destructor for Dog class called" << std::endl;
 	return ; 
 }

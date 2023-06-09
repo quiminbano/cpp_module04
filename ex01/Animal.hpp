@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:07:52 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/09 15:33:16 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/09 10:33:56 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	Animal(void);
 	Animal(Animal const &rhs);
 	Animal(std::string type);
-	virtual ~Animal(void);
+	~Animal(void);
 
 	Animal	&operator=(Animal const &rhs);
 
