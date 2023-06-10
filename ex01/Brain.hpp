@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 18:33:54 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/09 18:48:14 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/10 12:51:44 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,24 @@
 # define BRAIN_HPP
 
 # include <string>
+# include <iostream>
 
 class Brain
 {
 public:
 
 	Brain(void);
+	Brain(std::string thoughts);
 	Brain(Brain const &rhs);
 	~Brain(void);
 
 	Brain	&operator=(Brain const &rhs);
 
+	std::string	getIdeas(int i) const;
+
 private:
 
-	std::string	_ideas;
+	std::string	_ideas[100];
 
 };
 
