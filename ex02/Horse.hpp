@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Horse.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 13:07:52 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/11 12:37:29 by corellan         ###   ########.fr       */
+/*   Created: 2023/06/11 13:10:08 by corellan          #+#    #+#             */
+/*   Updated: 2023/06/11 14:01:21 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef HORSE_HPP
+# define HORSE_HPP
 
-# include <string>
-# include <iostream>
+# include "AAnimal.hpp"
+# include "Brain.hpp"
 
-class Animal
+class Horse : public AAnimal
 {
 public:
 
-	Animal(void);
-	Animal(Animal const &rhs);
-	Animal(std::string type);
-	virtual ~Animal(void);
+	Horse(void);
+	Horse(std::string type);
+	Horse(Horse const &rhs);
+	~Horse(void);
 
-	Animal	&operator=(Animal const &rhs);
+	Horse	&operator=(Horse const &rhs);
 
-	virtual void	makeSound(void) const;
-	virtual void	printAddressBrain(void) const;
+	void	makeSound(void) const;
+	void	printAddressBrain(void) const;
 
-	std::string	getType(void) const;
+private:
 
-protected:
-
-	std::string	_type;
+	Brain	*_brain;
 
 };
 

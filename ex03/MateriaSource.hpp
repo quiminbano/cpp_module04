@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 13:07:52 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/11 12:37:29 by corellan         ###   ########.fr       */
+/*   Created: 2023/06/11 16:48:17 by corellan          #+#    #+#             */
+/*   Updated: 2023/06/11 16:59:48 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-# include <string>
-# include <iostream>
+# include "AMateria.hpp"
 
-class Animal
+class	MateriaSource
 {
-public:
+	public:
+		MateriaSource(void);
+		MateriaSource(MateriaSource const &rhs);
+		~MateriaSource(void);
 
-	Animal(void);
-	Animal(Animal const &rhs);
-	Animal(std::string type);
-	virtual ~Animal(void);
-
-	Animal	&operator=(Animal const &rhs);
-
-	virtual void	makeSound(void) const;
-	virtual void	printAddressBrain(void) const;
-
-	std::string	getType(void) const;
-
-protected:
-
-	std::string	_type;
-
+		void		learnMateria(AMateria*);
+		AMateria	*createMateria(std::string const &type);
+	
+	private:
+		AMateria	*_materias[4];
 };
 
 #endif

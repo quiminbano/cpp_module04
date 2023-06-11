@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/08 13:07:52 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/11 12:37:29 by corellan         ###   ########.fr       */
+/*   Created: 2023/06/11 16:41:02 by corellan          #+#    #+#             */
+/*   Updated: 2023/06/11 16:52:08 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef IMATERIASOURCE_HPP
+# define IMATERIASOURCE_HPP
 
-# include <string>
-# include <iostream>
+#include "AMateria.hpp"
 
-class Animal
+class	IMateriaSource
 {
-public:
+	public:
+		virtual ~IMateriaSource(void) { }
 
-	Animal(void);
-	Animal(Animal const &rhs);
-	Animal(std::string type);
-	virtual ~Animal(void);
-
-	Animal	&operator=(Animal const &rhs);
-
-	virtual void	makeSound(void) const;
-	virtual void	printAddressBrain(void) const;
-
-	std::string	getType(void) const;
-
-protected:
-
-	std::string	_type;
-
+		virtual void		learnMateria(AMateria*) = 0;
+		virtual AMateria 	*createMateria(std::string const &type) = 0;
 };
 
 #endif

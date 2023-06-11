@@ -6,20 +6,20 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:11:55 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/11 12:42:04 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/11 13:00:20 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(void) : Animal("Cat"), _brain(NULL)
+Cat::Cat(void) : AAnimal("Cat"), _brain(NULL)
 {
 	std::cout << "Default constructor for Cat class called" << std::endl;
 	this->_brain = new Brain("Meow Meow Cat Meow Meow");
 	return ;
 }
 
-Cat::Cat(std::string type) : Animal(type), _brain(NULL)
+Cat::Cat(std::string type) : AAnimal(type), _brain(NULL)
 {
 	this->_type = type;
 	std::cout << "Constructor for Cat class called with the type " << this->_type << std::endl;
@@ -66,6 +66,6 @@ void	Cat::makeSound(void) const
 
 void	Cat::printAddressBrain(void) const
 {
-	std::cout << "Address of pointer Brain in the class Cat of type " << this->_type << ": " << &(this->_brain) << std::endl;
+	std::cout << "Address of pointer Brain in the class Cat: " << &(this->_brain) << std::endl;
 	return ;
 }

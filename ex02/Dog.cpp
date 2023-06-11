@@ -6,20 +6,20 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:54:17 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/11 12:50:52 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/11 12:59:37 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void) : Animal("Dog"), _brain(NULL)
+Dog::Dog(void) : AAnimal("Dog"), _brain(NULL)
 {
 	std::cout << "Default constructor for Dog class called" << std::endl;
 	this->_brain = new Brain("Woof Woof Dog Woof Woof");
 	return ;
 }
 
-Dog::Dog(std::string type) : Animal(type), _brain(NULL)
+Dog::Dog(std::string type) : AAnimal(type), _brain(NULL)
 {
 	this->_type = type;
 	std::cout << "Constructor for Dog class called with the type " << this->_type << std::endl;
@@ -66,6 +66,6 @@ void	Dog::makeSound(void) const
 
 void	Dog::printAddressBrain(void) const
 {
-	std::cout << "Address of pointer Brain in the class Dog of type " << this->_type << ": " << &(this->_brain) << std::endl;
+	std::cout << "Address of pointer Brain in the class Dog: " << &(this->_brain) << std::endl;
 	return ;
 }

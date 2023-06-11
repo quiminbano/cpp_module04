@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:07:52 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/11 12:37:29 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/11 13:01:41 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 # include <string>
 # include <iostream>
 
-class Animal
+class AAnimal
 {
 public:
 
-	Animal(void);
-	Animal(Animal const &rhs);
-	Animal(std::string type);
-	virtual ~Animal(void);
+	AAnimal(void);
+	AAnimal(AAnimal const &rhs);
+	AAnimal(std::string type);
+	virtual ~AAnimal(void);
 
-	Animal	&operator=(Animal const &rhs);
+	AAnimal	&operator=(AAnimal const &rhs);
 
-	virtual void	makeSound(void) const;
-	virtual void	printAddressBrain(void) const;
+	virtual void	makeSound(void) const = 0;
+	virtual void	printAddressBrain(void) const = 0;
 
 	std::string	getType(void) const;
 

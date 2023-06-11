@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:58:06 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/09 10:59:18 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/11 12:40:48 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,10 @@ void	Animal::makeSound(void) const
 std::string	Animal::getType(void) const
 {
 	return (this->_type);
+}
+
+void	Animal::printAddressBrain(void) const
+{
+	std::cout << "Wait, I am an animal of type " << this->_type << ", but, I don't have a brain." << std::endl; 
+	return ;
 }
