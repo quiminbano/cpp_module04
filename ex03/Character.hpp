@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 15:49:34 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/11 16:39:43 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/12 18:10:54 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ICharacter.hpp"
 
-class Character
+class Character : public ICharacter
 {
 	public:
 		Character(void);
@@ -29,6 +29,11 @@ class Character
 		void				equip(AMateria *m);
 		void				unequip(int idx);
 		void				use(int idx, ICharacter &target);
+		AMateria			*getInventory(int i) const;
+		AMateria			*getReserve(int i) const;
+		int					getFlag(void) const;
+		int					getCounter(void) const;
+		int					getReserveCounter(void) const;
 	
 	private:
 

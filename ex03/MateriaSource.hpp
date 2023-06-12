@@ -6,16 +6,16 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 16:48:17 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/11 16:59:48 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/11 17:40:09 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 
-# include "AMateria.hpp"
+# include "IMateriaSource.hpp"
 
-class	MateriaSource
+class	MateriaSource : public IMateriaSource
 {
 	public:
 		MateriaSource(void);

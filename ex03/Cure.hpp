@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 15:25:45 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/11 15:36:21 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/11 17:29:41 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class	Cure : public AMateria
 		~Cure(void);
 
 		AMateria	*clone(void) const;
+		void		use(ICharacter &target);
 };
 
 #endif

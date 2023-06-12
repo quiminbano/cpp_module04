@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 15:25:50 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/11 15:35:01 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/12 13:55:19 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ class	Ice : public AMateria
 		Ice(void);
 		Ice(Ice const &rhs);
 		~Ice(void);
+
+		Ice	&operator=(Ice const &rhs);
 
 		AMateria	*clone(void) const;
 };
