@@ -6,24 +6,24 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 23:16:59 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/13 09:50:08 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/13 20:07:00 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaList.hpp"
 
-MateriaList::MateriaList(void) : next(NULL), reserve(NULL)
+MateriaList::MateriaList(void) : reserve(NULL), next(NULL)
 {
 	return ;
 }
 
-MateriaList::MateriaList(AMateria *ptr) : next(NULL), reserve(NULL)
+MateriaList::MateriaList(AMateria *ptr) : reserve(NULL), next(NULL)
 {
 	this->reserve = ptr;
 	return ;
 }
 
-MateriaList::MateriaList(MateriaList const &rhs) : next(NULL), reserve(NULL)
+MateriaList::MateriaList(MateriaList const &rhs) : reserve(NULL), next(NULL)
 {
 	MateriaList	*temp;
 	MateriaList	*temp2;

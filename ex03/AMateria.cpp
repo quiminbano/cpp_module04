@@ -6,13 +6,13 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:01:01 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/12 15:21:33 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/13 20:14:52 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
 
-AMateria::AMateria(void)
+AMateria::AMateria(void) : _type("unknown")
 {
 	std::cout << "Constructor for AMateria called" << std::endl;
 	return ;
