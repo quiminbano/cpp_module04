@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 23:08:42 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/12 23:54:35 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/13 09:40:03 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,17 @@ class MateriaList
 		MateriaList	*next;
 
 		MateriaList(void);
+		MateriaList(AMateria *ptr);
 		MateriaList(MateriaList const &rhs);
 		~MateriaList(void);
 
 		MateriaList	&operator=(MateriaList const &rhs);
 
-		int		sizeList(void);
-		void	addNode(AMateria *ptr);
-		void	deleteLast(void);
+		int			sizeList(void);
+		void		addNode(AMateria *ptr);
+		MateriaList	*getLast(void);
+		void		deleteLast(void);
+		void		deleteList(void);
 };
 
 #endif
