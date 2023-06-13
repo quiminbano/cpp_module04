@@ -6,13 +6,13 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 15:13:25 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/13 19:15:01 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/13 20:17:07 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character(void) : _name("no_name"), list(NULL)
+Character::Character(void) : list(NULL), _name("no_name")
 {
 	int	i;
 
@@ -22,7 +22,7 @@ Character::Character(void) : _name("no_name"), list(NULL)
 	return ;
 }
 
-Character::Character(std::string name) : _name(name), list(NULL)
+Character::Character(std::string name) : list(NULL), _name(name)
 {
 	int	i;
 
