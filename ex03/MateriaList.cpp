@@ -6,14 +6,17 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 23:16:59 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/13 20:07:00 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/14 17:51:24 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaList.hpp"
+#include "AMateria.hpp"
 
 MateriaList::MateriaList(void) : reserve(NULL), next(NULL)
 {
+	this->reserve = NULL;
+	this->next = NULL;
 	return ;
 }
 
@@ -28,26 +31,23 @@ MateriaList::MateriaList(MateriaList const &rhs) : reserve(NULL), next(NULL)
 	MateriaList	*temp;
 	MateriaList	*temp2;
 
-	temp = &(static_cast<MateriaList>(rhs));
+	temp = const_cast<MateriaList*>(&rhs);
 	temp2 = this;
-	while (temp != NULL)
+	if (temp == NULL)
+		return ;
+	temp2->reserve = temp->reserve->clone();
+	while (temp->next != NULL)
 	{
-		temp2->reserve = rhs.reserve->clone();
+		temp2->next = new MateriaList(temp->next->reserve->clone());
 		temp = temp->next;
-		if (temp != NULL)
-		{
-			temp2 = temp2->next;
-			temp2 = new MateriaList();
-		}
+		temp2 = temp2->next;
 		temp2->next = NULL;
 	}
 	return ;
-	
 }
 
 MateriaList::~MateriaList(void)
 {
-	this->deleteList();
 	return ;
 }
 
@@ -57,19 +57,18 @@ MateriaList	&MateriaList::operator=(MateriaList const &rhs)
 	MateriaList	*temp2;
 
 	temp2 = this;
-	temp = &(static_cast<MateriaList>(rhs));
+	temp = const_cast<MateriaList*>(&rhs);
 	if (this != &rhs)
 	{
 		this->deleteList();
-		while (temp != NULL)
+		if (temp == NULL)
+			return (*this);
+		temp2->reserve = temp->reserve->clone();
+		while (temp->next != NULL)
 		{
-			temp2->reserve = rhs.reserve->clone();
+			temp2->next = new MateriaList(temp->next->reserve->clone());
 			temp = temp->next;
-			if (temp != NULL)
-			{
-				temp2 = temp2->next;
-				temp2 = new MateriaList();
-			}
+			temp2 = temp2->next;
 			temp2->next = NULL;
 		}
 	}
@@ -100,8 +99,7 @@ void	MateriaList::addNode(AMateria *ptr)
 		return ;
 	while (temp->next != NULL)
 		temp = temp->next;
-	temp = new MateriaList();
-	temp->reserve = ptr;
+	temp->next = new MateriaList(ptr);
 	return ;
 }
 
@@ -121,6 +119,7 @@ void	MateriaList::deleteLast(void)
 	MateriaList	*secondLast;
 
 	secondLast = this;
+	last = NULL;
 	if (this->sizeList() == 1)
 		return ;
 	while (secondLast->next->next != NULL)
@@ -139,3 +138,17 @@ void	MateriaList::deleteList(void)
 	delete this->reserve;
 	this->reserve = NULL;
 }
+
+void	MateriaList::printAddressList(void)
+{
+	MateriaList	*ptr;
+
+	ptr = this;
+	while (ptr != NULL)
+	{
+		std::cout << ptr << std::endl;
+		ptr = ptr->next;
+	}
+	return ;
+}
+

@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 14:53:25 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/12 13:41:13 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/14 09:36:51 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include <string>
 # include <iostream>
-# include "Character.hpp"
+
+class	ICharacter;
 
 class	AMateria
 {

@@ -6,11 +6,14 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 13:56:07 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/13 19:52:17 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/14 10:22:53 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include <iostream>
 
 MateriaSource::MateriaSource(void)
 {
@@ -66,6 +69,7 @@ void	MateriaSource::learnMateria(AMateria *ptr)
 		}
 	}
 	this->_materias[i] = ptr;
+	std::cout << "it has been learnt a " << this->_materias[i]->getType() << " materia, in the slot " << i << std::endl;
 	return ;
 }
 
@@ -110,6 +114,7 @@ MateriaSource	&MateriaSource::operator=(MateriaSource const &rhs)
 		else
 			this->_materias[i] = NULL;
 	}
+	return (*this);
 }
 
 AMateria	*MateriaSource::getMateria(int idx) const

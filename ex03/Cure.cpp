@@ -6,11 +6,12 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 15:01:50 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/12 15:10:29 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/14 10:10:59 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
+#include "ICharacter.hpp"
 
 Cure::Cure(void) : AMateria("cure")
 {
@@ -43,4 +44,10 @@ AMateria	*Cure::clone(void) const
 {
 	AMateria	*pointer = new Cure();
 	return (pointer); 
+}
+
+void	Cure::use(ICharacter &target)
+{
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+	return ;
 }

@@ -6,15 +6,16 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:01:01 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/13 20:14:52 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/14 10:20:43 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 AMateria::AMateria(void) : _type("unknown")
 {
-	std::cout << "Constructor for AMateria called" << std::endl;
+	std::cout << "Default Constructor for AMateria class called" << std::endl;
 	return ;
 }
 
@@ -34,7 +35,7 @@ AMateria::AMateria(std::string const &type)
 
 AMateria::~AMateria(void)
 {
-	std::cout << "Destructor for AMateria class called" << std::endl;
+	std::cout << "Default Destructor for AMateria class called" << std::endl;
 	return ;
 }
 
@@ -53,9 +54,6 @@ std::string const	&AMateria::getType(void) const
 
 void	AMateria::use(ICharacter &target)
 {
-	if (this->_type.compare("ice") == 0)
-		std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
-	else if (this->_type.compare("cure") == 0)
-		std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+	std::cout << "If you are trying to attack " << target.getName() << " with " << this->_type << ", it means that something is wrong" << std::endl;
 	return ;
 }

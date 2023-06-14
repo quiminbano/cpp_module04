@@ -6,11 +6,13 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 15:13:25 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/13 20:17:07 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/14 16:34:20 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 Character::Character(void) : list(NULL), _name("no_name")
 {
@@ -66,7 +68,8 @@ Character::~Character(void)
 			delete this->_inventory[i];
 	}
 	if (list != NULL)
-		delete list;
+		list->deleteList();
+	delete list;
 	return ;
 }
 
@@ -127,6 +130,7 @@ void	Character::equip(AMateria *m)
 	{
 		std::cout << this->_name << " has equiped the materia " << m->getType() << " in the slot " << i << std::endl;
 		this->_inventory[i] = m;
+		this->_flag = 1;
 	}
 	else
 	{
@@ -138,6 +142,10 @@ void	Character::equip(AMateria *m)
 
 void	Character::unequip(int idx)
 {
+	int			i;
+	int			counter;
+
+	counter = 0;
 	if (idx > 3 || idx < 0)
 	{
 		if (idx > 3)
@@ -157,6 +165,14 @@ void	Character::unequip(int idx)
 	else
 		this->list->addNode(this->_inventory[idx]);
 	this->_inventory[idx] = NULL;
+	for (i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i] != NULL)
+			counter++;
+	}
+	if (counter == 0)
+		this->_flag = 0;
+	return ;
 }
 
 void	Character::use(int idx, ICharacter &target)

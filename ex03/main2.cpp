@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   main2.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 15:25:50 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/14 10:07:22 by corellan         ###   ########.fr       */
+/*   Created: 2023/06/14 17:32:04 by corellan          #+#    #+#             */
+/*   Updated: 2023/06/14 19:43:20 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-# define ICE_HPP
+#include "MateriaList.hpp"
+#include "Ice.hpp"
+#include <string>
 
-# include "AMateria.hpp"
-
-class	Ice : public AMateria
+int	main(void)
 {
-	public:
-		Ice(void);
-		Ice(Ice const &rhs);
-		~Ice(void);
+	MateriaList *p;
+	MateriaList	*v;
+	AMateria *s = new Ice();
 
-		Ice	&operator=(Ice const &rhs);
-
-		AMateria	*clone(void) const;
-		void		use(ICharacter &target);
-};
-
-#endif
+	p = new MateriaList(s);
+	v = new MateriaList();
+	*v = *p;
+	p->deleteList();
+	v->deleteList();
+	delete p;
+	delete v;
+	return (0);
+}
