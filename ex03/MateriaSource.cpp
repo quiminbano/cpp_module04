@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 13:56:07 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/14 10:22:53 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/15 19:45:59 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,26 @@ MateriaSource	&MateriaSource::operator=(MateriaSource const &rhs)
 			this->_materias[i] = NULL;
 	}
 	return (*this);
+}
+
+void	MateriaSource::printInventory(void)
+{
+	int	i;
+	int	counter;
+
+	i = 0;
+	counter = 0;
+	while (i < 4)
+	{
+		if (this->_materias[i] != NULL)
+			std::cout << "My inventory of materias has " << this->_materias[i]->getType() << " in the slot " << (i + 1) << std::endl;
+		else
+			counter++;
+		i++;
+	}
+	if (counter == 4)
+		std::cout << "my inventory of materias is empty" << std::endl;
+	return ;
 }
 
 AMateria	*MateriaSource::getMateria(int idx) const

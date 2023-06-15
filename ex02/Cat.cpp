@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:11:55 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/11 13:00:20 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:05:34 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,11 @@ void	Cat::makeSound(void) const
 void	Cat::printAddressBrain(void) const
 {
 	std::cout << "Address of pointer Brain in the class Cat: " << &(this->_brain) << std::endl;
+	return ;
+}
+
+void	Cat::printBrain(void) const
+{
+	this->_brain->printIdeas();
 	return ;
 }

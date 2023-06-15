@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 16:48:17 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/13 19:45:16 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/15 19:44:53 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class	MateriaSource : public IMateriaSource
 		void		learnMateria(AMateria *);
 		AMateria	*getMateria(int idx) const;
 		AMateria	*createMateria(std::string const &type);
+		void		printInventory(void);
 	
 	private:
 		AMateria	*_materias[4];

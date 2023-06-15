@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 15:13:25 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/14 16:34:20 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/15 19:40:04 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,6 +199,26 @@ void	Character::use(int idx, ICharacter &target)
 	}
 	else
 		this->_inventory[idx]->use(target);
+	return ;
+}
+
+void	Character::printInventory(void)
+{
+	int	i;
+	int	counter;
+
+	i = 0;
+	counter = 0;
+	while (i < 4)
+	{
+		if (this->_inventory[i] != NULL)
+			std::cout << "My name is " << this->_name << " and my inventory has " << this->_inventory[i]->getType() << " in the slot " << (i + 1) << std::endl;
+		else
+			counter++;
+		i++;
+	}
+	if (counter == 4)
+		std::cout << "My name is " << this->_name << " but my inventory is empty" << std::endl;
 	return ;
 }
 

@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 15:49:34 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/14 09:41:57 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/15 19:24:36 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Character : public ICharacter
 		AMateria			*getInventory(int i) const;
 		int					getFlag(void) const;
 		int					getCounter(void) const;
+		void				printInventory(void);
 	
 	private:
 

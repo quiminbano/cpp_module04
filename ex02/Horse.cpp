@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:39:34 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/11 14:06:57 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:10:10 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,11 @@ void	Horse::makeSound(void) const
 void	Horse::printAddressBrain(void) const
 {
 	std::cout << "Address of pointer Brain in the class Horse: " << &(this->_brain) << std::endl;
+	return ;
+}
+
+void	Horse::printBrain(void) const
+{
+	this->_brain->printIdeas();
 	return ;
 }

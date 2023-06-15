@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 17:01:01 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/14 10:20:43 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/15 19:02:49 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,14 @@ AMateria	&AMateria::operator=(AMateria const &rhs)
 {
 	std::cout << "Copy assigment operator for AMateria class called" << std::endl;
 	if (this != &rhs)
+	{
+		if (this->getType().compare(rhs.getType()) != 0)
+		{
+			std::cout << "Both pointers have a different type of Materia. The copy is not possible" << std::endl;
+			return (*this);
+		}
 		this->_type = rhs.getType();
+	}
 	return (*this);
 }
 

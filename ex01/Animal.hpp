@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:07:52 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/12 12:18:04 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/15 11:00:29 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ public:
 
 	virtual void	makeSound(void) const;
 	virtual void	printAddressBrain(void) const;
+	virtual void	printBrain(void) const;
 
 	std::string	getType(void) const;
 

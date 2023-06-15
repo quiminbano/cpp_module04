@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:14:21 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/12 12:19:50 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/15 11:31:14 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,14 @@ int	main(void)
 	j[2]->printAddressBrain();
 	n->printAddressBrain();
 	std::cout << std::endl;
-	//Testing the ability of the copy assigment operator overload of the Cat classs (deep copy)
-	*static_cast<Dog *>(k) = *static_cast<const Dog *>(j[1]);
-	std::cout << std::endl;
-	j[1]->printAddressBrain();
-	k->printAddressBrain();
+	std::cout << "j[0]:" << std::endl;
+	j[0]->printBrain();
+	std::cout << "k:" << std::endl;
+	k->printBrain();
+	std::cout << "j[2]:" << std::endl;
+	j[2]->printBrain();
+	std::cout << "n:" << std::endl;
+	n->printBrain();
 	std::cout << std::endl;
 	while (i < 4)
 	{

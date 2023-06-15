@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 18:34:03 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/10 13:02:50 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:11:14 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,20 @@ Brain	&Brain::operator=(Brain const &rhs)
 std::string	Brain::getIdeas(int i) const
 {
 	return (this->_ideas[i]);
+}
+
+void	Brain::printIdeas(void)
+{
+	int	i;
+
+	i = 0;
+	while (i < 100)
+	{
+		if (i == 0)
+			std::cout << "I think " << this->_ideas[i] << " " << (i + 1) << " time" << std::endl;
+		else
+			std::cout << "I think " << this->_ideas[i] << " " << (i + 1) << " times" << std::endl;
+		i++;
+	}
+	return ;
 }

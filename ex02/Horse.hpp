@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:10:08 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/11 14:01:21 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:04:52 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ public:
 
 	void	makeSound(void) const;
 	void	printAddressBrain(void) const;
+	void	printBrain(void) const;
 
 private:
 
