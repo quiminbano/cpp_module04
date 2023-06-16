@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 15:13:25 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/16 16:05:46 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/16 17:52:46 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ Character::Character(std::string name) : list(NULL), _name(name)
 
 Character::Character(Character const &rhs)  : list(NULL), _name("no_name")
 {
-	int	i;
-
 	std::cout << "Copy constructor for Character clas called" << std::endl;
 	*this = rhs;
 	return ;
