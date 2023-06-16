@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:07:52 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/15 11:00:29 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/16 11:19:40 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ public:
 
 	Animal	&operator=(Animal const &rhs);
 
-	virtual void	makeSound(void) const;
-	virtual void	printAddressBrain(void) const;
-	virtual void	printBrain(void) const;
+	virtual void					makeSound(void) const;
+	virtual void					printAddressBrain(void) const;
+	virtual void					printBrain(void) const;
+	virtual const std::type_info	&getTypeOfClass(void) const;
 
 	std::string	getType(void) const;
 

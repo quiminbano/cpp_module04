@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 13:07:52 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/15 15:02:13 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/16 13:04:02 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ public:
 	virtual void	printAddressBrain(void) const = 0;
 	virtual void	printBrain(void) const = 0;
 
-	std::string	getType(void) const;
+	std::string						getType(void) const;
+	virtual const std::type_info	&getTypeOfClass(void) const;
 
 protected:
 

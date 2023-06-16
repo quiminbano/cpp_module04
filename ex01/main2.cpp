@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:07:42 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/15 11:38:05 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:48:20 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,17 @@ int	main(void)
 	*cp1 = *kida;
 	std::cout << std::endl;
 	*cp2 = *anneli;
-
 	std::cout << std::endl;
+	*default3 = *kida;
+	std::cout << std::endl << std::endl; 
+	*anneli = *(reinterpret_cast<Cat*>(kida));
+	std::cout << std::endl << std::endl;
 	miina = new Dog(*cp1);
 	std::cout << std::endl;
+	std::cout << "ANALiZING LULI" << std::endl;
 	luli = new Cat(*cp2);
-	std::cout << std::endl;
+	luli->printBrain();
+	std::cout << "Luli is ready" << std::endl << std::endl;
 	delete default1;
 	std::cout << std::endl;
 	delete default2;

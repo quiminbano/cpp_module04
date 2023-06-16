@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 15:13:25 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/15 19:40:04 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/16 16:05:46 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,27 +34,13 @@ Character::Character(std::string name) : list(NULL), _name(name)
 	return ;
 }
 
-Character::Character(Character const &rhs)
+Character::Character(Character const &rhs)  : list(NULL), _name("no_name")
 {
 	int	i;
 
 	std::cout << "Copy constructor for Character clas called" << std::endl;
-	for (i = 0; i < 4; i++)
-	{
-		if (rhs.getInventory(i) != NULL)
-		{
-			if (rhs.getInventory(i)->getType().compare("ice") == 0)
-				this->_inventory[i] = new Ice();
-			else
-				this->_inventory[i] = new Cure();
-		}
-		else
-			this->_inventory[i] = NULL;
-	}
-	list = new MateriaList(*rhs.list);
-	this->_counter = rhs.getCounter();
-	this->_flag = rhs.getFlag();
-	this->_name = rhs.getName();
+	*this = rhs;
+	return ;
 }
 
 Character::~Character(void)
@@ -76,7 +62,7 @@ Character::~Character(void)
 Character	&Character::operator=(Character const &rhs)
 {
 	int	i;
-
+	std::cout << "Copy assigment for Character class called" << std::endl;
 	if (this != &rhs)
 	{
 		for (i = 0; i < 4; i++)
@@ -89,12 +75,7 @@ Character	&Character::operator=(Character const &rhs)
 		for (i = 0; i < 4; i++)
 		{
 			if (rhs.getInventory(i) != NULL)
-			{
-				if (rhs.getInventory(i)->getType().compare("ice") == 0)
-					this->_inventory[i] = new Ice();
-				else
-					this->_inventory[i] = new Cure();
-			}
+				this->_inventory[i] = rhs.getInventory(i)->clone();
 			else
 				this->_inventory[i] = NULL;
 		}
@@ -126,17 +107,9 @@ void	Character::equip(AMateria *m)
 			return ;
 		}
 	}
-	if (m->getType().compare("ice") == 0 || m->getType().compare("cure") == 0)
-	{
-		std::cout << this->_name << " has equiped the materia " << m->getType() << " in the slot " << i << std::endl;
-		this->_inventory[i] = m;
-		this->_flag = 1;
-	}
-	else
-	{
-		std::cout << this->_name << ". Duude!! That materia is impossible to learn" << std::endl;
-		delete m;
-	}
+	std::cout << this->_name << " has equiped the materia " << m->getType() << " in the slot " << i << std::endl;
+	this->_inventory[i] = m;
+	this->_flag = 1;
 	return ;
 }
 

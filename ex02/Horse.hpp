@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:10:08 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/15 15:04:52 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/16 15:21:18 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ public:
 
 	Horse	&operator=(Horse const &rhs);
 
-	void	makeSound(void) const;
-	void	printAddressBrain(void) const;
-	void	printBrain(void) const;
+	void					makeSound(void) const;
+	void					printAddressBrain(void) const;
+	void					printBrain(void) const;
+	const std::type_info	&getTypeOfClass(void) const;
 
 private:
 

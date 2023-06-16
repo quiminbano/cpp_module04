@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 13:39:34 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/15 15:10:10 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/16 15:23:43 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,10 @@ Horse::Horse(std::string type) : AAnimal(type), _brain(NULL)
 	return ;
 }
 
-Horse::Horse(Horse const &rhs)
+Horse::Horse(Horse const &rhs) : AAnimal("Horse"), _brain(NULL)
 {
 	std::cout << "Copy constructor for Horse class called" << std::endl;
-	this->_type = rhs._type;
-	this->_brain = new Brain(*rhs._brain);
+	*this = rhs;
 	return ;
 }
 
@@ -44,9 +43,27 @@ Horse::~Horse(void)
 
 Horse	&Horse::operator=(Horse const &rhs)
 {
+	std::string	temp = rhs.getTypeOfClass().name();
+	std::string temp2 = this->getTypeOfClass().name();
+	Horse		*ptr = const_cast<Horse*>(&rhs);
+
 	std::cout << "Copy assigment for Horse class called" << std::endl;
 	if (this != &rhs)
 	{
+		if (ptr == NULL)
+		{
+			std::cout << "You are using the copy assigment operator passing a reference of a NULL pointer. Aborting mission" << std::endl;
+			if (this->_brain == NULL)
+				this->_brain = new Brain("Brrr I am a horse and I am amazing Brrr");
+			return (*this);
+		}
+		if (temp.compare(temp2) != 0)
+		{
+			std::cout << "You are trying to use the copy assigment operator in two different animals. Aborting mission" << std::endl;
+			if (this->_brain == NULL)
+				this->_brain = new Brain("Brrr I am a horse and I am amazing Brrr");
+			return (*this);
+		}
 		this->_type = rhs._type;
 		if (this->_brain != NULL)
 		{
@@ -74,4 +91,9 @@ void	Horse::printBrain(void) const
 {
 	this->_brain->printIdeas();
 	return ;
+}
+
+const std::type_info	&Horse::getTypeOfClass(void) const
+{
+	return (typeid(*this));
 }

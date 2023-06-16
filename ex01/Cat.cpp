@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:11:55 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/15 11:02:20 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:55:19 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,10 @@ Cat::Cat(std::string type) : Animal(type), _brain(NULL)
 	return ;
 }
 
-Cat::Cat(Cat const &rhs)
+Cat::Cat(Cat const &rhs) : Animal("Cat"), _brain(NULL)
 {
 	std::cout << "Copy constructor for Cat class called" << std::endl;
-	this->_type = rhs._type;
-	this->_brain = new Brain(*rhs._brain);
+	*this = rhs;
 	return ;
 }
 
@@ -44,9 +43,27 @@ Cat::~Cat(void)
 
 Cat	&Cat::operator=(Cat const &rhs)
 {
+	std::string	temp = rhs.getTypeOfClass().name();
+	std::string temp2 = this->getTypeOfClass().name();
+	Cat			*ptr = const_cast<Cat*>(&rhs);
+
 	std::cout << "Copy assigment for Cat class called" << std::endl;
 	if (this != &rhs)
 	{
+		if (ptr == NULL)
+		{
+			std::cout << "You are using the copy assigment operator passing a reference of a NULL pointer. Aborting mission" << std::endl;
+			if (this->_brain == NULL)
+				this->_brain = new Brain("Meow Meow Cat Meow Meow"); 
+			return (*this);
+		}
+		if (temp.compare(temp2) != 0)
+		{
+			std::cout << "You are trying to use the copy assigment operator in two different animals. Aborting mission" << std::endl;
+			if (this->_brain == NULL)
+				this->_brain = new Brain("Meow Meow Cat Meow Meow");
+			return (*this);
+		}
 		this->_type = rhs._type;
 		if (this->_brain != NULL)
 		{
@@ -74,4 +91,9 @@ void	Cat::printBrain(void) const
 {
 	this->_brain->printIdeas();
 	return ;
+}
+
+const std::type_info	&Cat::getTypeOfClass(void) const
+{
+	return (typeid(*this));
 }

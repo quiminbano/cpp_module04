@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:58:06 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/15 11:00:36 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:21:34 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Animal::Animal(std::string type) : _type(type)
 	return ;
 }
 
-Animal::Animal(Animal const &rhs)
+Animal::Animal(Animal const &rhs) : _type("unknown")
 {
 	std::cout << "Copy constructor for Animal class called" << std::endl;
 	*this = rhs;
@@ -39,8 +39,26 @@ Animal::~Animal(void)
 
 Animal	&Animal::operator=(Animal const &rhs)
 {
+	std::string	temp = rhs.getTypeOfClass().name();
+	std::string temp2 = this->getTypeOfClass().name();
+	Animal		*ptr;
+
+	ptr = const_cast<Animal*>(&rhs);
 	std::cout << "Copy assigment for Animal class called" << std::endl;
-	this->_type = rhs.getType();
+	if (this != &rhs)
+	{
+		if (ptr == NULL)
+		{
+			std::cout << "You are using the copy assigment operator passing a reference of a NULL pointer. Aborting mission" << std::endl; 
+			return (*this);
+		}
+		if (temp.compare(temp2) != 0)
+		{
+			std::cout << "You are trying to use the copy assigment operator in two different animals. Aborting mission" << std::endl;
+			return (*this);
+		}
+		this->_type = rhs.getType();
+	}
 	return (*this);
 }
 
@@ -65,4 +83,9 @@ void	Animal::printBrain(void) const
 {
 	std::cout << "Wait, I am an animal of type " << this->_type << ", but, I don't have a brain." << std::endl; 
 	return ;
+}
+
+const std::type_info	&Animal::getTypeOfClass(void) const
+{
+	return (typeid(*this));
 }
