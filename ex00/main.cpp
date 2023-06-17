@@ -6,7 +6,7 @@
 /*   By: corellan <corellan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 10:14:21 by corellan          #+#    #+#             */
-/*   Updated: 2023/06/09 18:21:47 by corellan         ###   ########.fr       */
+/*   Updated: 2023/06/17 12:12:58 by corellan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(void)
 	j->makeSound();
 	meta->makeSound();
 	std::cout << std::endl;
+//Now testing WrongAnimal and WrongCat. It should print the Animal makesound, instead of WrongCat sound.
 	std::cout << "I am a " << k->getType() << " " << std::endl;
 	k->makeSound();
 	std::cout << std::endl;
